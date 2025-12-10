@@ -1,0 +1,54 @@
+{
+  "posts": [
+    {
+      "id": 4,
+      "slug": "worship-imani-agc-church",
+      "title": "Worship at Imani AGC Church",
+      "date": "2025-11-30",
+      "excerpt": " Blessed to have worshipped at Imani AGC Church today!",
+      "content": "Blessed to have worshipped at Imani AGC Church today! It was a privilege to join in prayer and reflect on my faith. Grateful for the warm welcome and opportunity to connect with the community.\n",
+      "images": [
+        "/blogs/imani_church.jpg",
+        "/blogs/1.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "interdenominational-service-kenegut",
+      "title": "Joint Interdenominational Service at Kenegut Location",
+      "date": "2025-11-16",
+      "excerpt": "Joined Senate Majority Leader Hon. Aaron Cheruiyot and other leaders for a joint service in Kenegut Location, Kapsoit Ward.",
+      "content": "Today, I joined Senate Majority Leader Hon. Aaron Cheruiyot, area MCA Paul Chirchir, and other leaders for a joint interdenominational church service and fundraising for several churches in Kenegut Location, Kapsoit Ward.\n\nWe came together to worship and support the growth of our faith communities. It was a powerful reminder of the strength we find in unity and shared purpose. The spirit of cooperation displayed by all leaders present sets a positive tone for our development agenda.\n\nDuring the service, we discussed various community needs and reaffirmed our commitment to working together for the betterment of Kapsoit Ward and Ainamoi Constituency as a whole. Strengthening our religious institutions is vital, as they play a crucial role in providing moral guidance and social support to our residents.\n\nI want to thank the clergy and the entire congregation for their warm welcome and prayers. Together, grounded in faith and unity, we will continue to achieve great milestones for our people.",
+      "images": [
+        "/blogs/8.jpg",
+        "/blogs/9.jpg",
+        "/blogs/10.jpg",
+        "/blogs/17.jpg"
+      ],
+      "captions": [
+        "Hon. Benjamin Langat",
+        "Hon. Aaron Cheruiyot",
+        "Hon. Paul Chirchir",
+        "Congregation"
+      ]
+    },
+    {
+      "slug": "implementation-of-last-mile-connectivity-project-begins",
+      "title": "Implementation of Last Mile Connectivity Project Begins",
+      "date": "2025-11-02",
+      "excerpt": " Great news! Electricity poles have arrived for Sirimdo, Tabaita, Barsaiyan, and Kipkeron/Sosit. See the full list of villages next in line for connection.",
+      "content": "Exciting updates from our constituency! We've started receiving electricity poles for the Last Mile Projects in Sirimdo, Tabaita, Barsaiyan, and Kipkeron/Sosit villages.\n\nWe are fully committed to lighting up every home. Residents in Kaboloin, Koigaron, Bechunlelach, Kiburet, Torsogek, Cheribo, and several other areas mapped by REREC will follow soon.\n\nThis is development reaching the grassroots. #NdioMashinani #KaziBilaKelele #Fotam",
+      "images": [
+        "/blogs/logs.jpg",
+        "/blogs/trucks.jpg",
+        "/blogs/truck.jpg"
+      ],
+      "captions": [
+        "Logs",
+        "Trucks",
+        "Truck"
+      ],
+      "id": 6
+    }
+  ]
+}

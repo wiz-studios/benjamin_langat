@@ -1,0 +1,52 @@
+{
+  "name": "Hon. Amb. CPA Benjamin Kipkirui Langat, CBS",
+  "title": "Member of Parliament for Ainamoi Constituency",
+  "shortBio": "Current Member of Parliament for Ainamoi Constituency and immediate former Kenya High Commissioner to Namibia. A distinguished public servant with over 15 years of experience in both public and private sectors.",
+  "photo": "/Benjamin_Langat.jpg",
+  "quickFacts": {
+    "constituency": "Ainamoi Constituency, Kericho County",
+    "party": "United Democratic Alliance (UDA)",
+    "award": "Chief of the Order of the Burning Spear (CBS) - 2015",
+    "education": "MBA & BCom (Accounting) - University of Nairobi",
+    "profession": "Certified Public Accountant (CPA-K)",
+    "currentPursuit": "PhD in Finance - University of Nairobi"
+  },
+  "stats": [
+    {
+      "label": "Years in Parliament",
+      "value": "13+"
+    },
+    {
+      "label": "Bills Sponsored",
+      "value": "9"
+    },
+    {
+      "label": "Parliamentary Appearances",
+      "value": "2560+"
+    },
+    {
+      "label": "Terms Served",
+      "value": "3"
+    },
+    {
+      "label": "National Award",
+      "value": "CBS"
+    }
+  ],
+  "socialLinks": {
+    "twitter": "#",
+    "facebook": "#",
+    "instagram": "#",
+    "linkedin": "#"
+  },
+  "contact": {
+    "email": "lkbenjami@yahoo.com",
+    "phone": "+254722895939",
+    "office": {
+      "address": "Parliament Buildings, Parliament Road",
+      "poBox": "P.O Box 41842 – 00100",
+      "city": "Nairobi, Kenya"
+    }
+  },
+  "birthDate": "24th November 1976"
+}

@@ -1,0 +1,60 @@
+{
+  "albums": [
+    {
+      "id": 1,
+      "name": "KKK Cup 2025",
+      "description": "Highlights from the annual sports tournament celebrating local talent and community spirit",
+      "coverImage": "/blogs/1.jpg",
+      "images": [
+        {
+          "id": 2,
+          "src": "/blogs/1.jpg",
+          "caption": "KKK Cup 2025: Congratulations to Lisbase FC on the big win!"
+        },
+        {
+          "id": 3,
+          "src": "/blogs/2.jpg",
+          "caption": "KKK Cup 2025: Raiders FC putting up a great fight - well done!"
+        },
+        {
+          "id": 4,
+          "src": "/blogs/3.jpg",
+          "caption": "KKK Cup 2025: Elites Ladies, champions of the women's football category"
+        },
+        {
+          "id": 5,
+          "src": "/blogs/4.jpg",
+          "caption": "KKK Cup 2025: Kapkugerwet Starlets securing 2nd place - proud of you!"
+        },
+        {
+          "id": 6,
+          "src": "/blogs/5.jpg",
+          "caption": "KKK Cup 2025: Celebrating with Kipchebor Volleyball and Eaglets Ladies"
+        },
+        {
+          "id": 7,
+          "src": "/blogs/6.jpg",
+          "caption": "KKK Cup 2025 Dignitaries: Senate Speaker Rt. Hon Amason Kingi and other leaders"
+        },
+        {
+          "id": 8,
+          "src": "/blogs/7.jpg",
+          "caption": "KKK Cup 2025: Ainamoi Pride - Supporting sports and community talent"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Community Events",
+      "description": "Faith gatherings, community meetings, and special occasions",
+      "coverImage": "/blogs/imani_church.jpg",
+      "images": [
+        {
+          "id": 1,
+          "src": "/blogs/imani_church.jpg",
+          "caption": "Worship at Imani AGC Church - A blessed Sunday service"
+        }
+      ]
+    }
+  ]
+}
