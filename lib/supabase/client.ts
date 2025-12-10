@@ -13,6 +13,10 @@ export type Database = {
                     email: string
                     phone: string
                     social_links: Record<string, string>
+                    quick_facts: Record<string, string> | null
+                    stats: Array<{ label: string; value: string }> | null
+                    contact_details: Record<string, any> | null
+                    birth_date: string | null
                     updated_at: string
                 }
                 Insert: Omit<Database['public']['Tables']['politician']['Row'], 'id' | 'updated_at'>
@@ -111,6 +115,21 @@ export type Database = {
                 }
                 Insert: Omit<Database['public']['Tables']['cdf_projects']['Row'], 'id' | 'created_at' | 'updated_at'>
                 Update: Partial<Database['public']['Tables']['cdf_projects']['Insert']>
+            }
+            mp_updates: {
+                Row: {
+                    id: string
+                    title: string
+                    category: string
+                    description: string | null
+                    date: string
+                    image_url: string | null
+                    status: string
+                    created_at: string
+                    updated_at: string
+                }
+                Insert: Omit<Database['public']['Tables']['mp_updates']['Row'], 'id' | 'created_at' | 'updated_at'>
+                Update: Partial<Database['public']['Tables']['mp_updates']['Insert']>
             }
         }
     }

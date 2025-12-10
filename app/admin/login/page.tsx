@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Eye, EyeOff } from "lucide-react"
 import Image from "next/image"
+import { useToast } from "@/hooks/use-toast"
 
 export default function AdminLoginPage() {
     const router = useRouter()
@@ -16,6 +17,7 @@ export default function AdminLoginPage() {
     const [showPassword, setShowPassword] = useState(false)
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
+    const { toast } = useToast()
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -31,16 +33,31 @@ export default function AdminLoginPage() {
 
             if (error) {
                 setError(error.message)
+                toast({
+                    title: "Login Failed",
+                    description: error.message,
+                    variant: "destructive",
+                })
                 setLoading(false)
                 return
             }
 
             if (data.session) {
+                toast({
+                    title: "Success",
+                    description: "Logged in successfully",
+                })
                 router.push("/admin")
                 router.refresh()
             }
         } catch (err) {
-            setError("An unexpected error occurred")
+            const message = "An unexpected error occurred. Please check your connection."
+            setError(message)
+            toast({
+                title: "Error",
+                description: message,
+                variant: "destructive",
+            })
             setLoading(false)
         }
     }

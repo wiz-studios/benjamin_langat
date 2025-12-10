@@ -1,12 +1,49 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
-import { ChevronDown, ChevronUp, Award, Briefcase, GraduationCap, FileText, Users, Target } from "lucide-react"
-import politicianData from "@/src/data/politician.json"
+import { useState, useEffect } from "react"
+import { ChevronDown, ChevronUp, Award, Briefcase, GraduationCap, FileText, Users, Target, Loader2 } from "lucide-react"
+import { createClient } from "@/lib/supabase/client"
+
+interface PoliticianProfile {
+  name: string
+  title: string
+  bio: string
+  photo: string
+  email: string
+  phone: string
+  birth_date: string | null
+}
 
 export default function AboutPage() {
   const [openSections, setOpenSections] = useState<string[]>(["bio"])
+  const [profile, setProfile] = useState<PoliticianProfile | null>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetchProfile() {
+      const supabase = createClient()
+      const { data, error } = await supabase
+        .from("politician")
+        .select("*")
+        .single()
+
+      if (!error && data) {
+        setProfile({
+          name: data.name,
+          title: data.title,
+          bio: data.bio,
+          photo: data.photo,
+          email: data.email,
+          phone: data.phone,
+          birth_date: data.birth_date,
+        })
+      }
+      setLoading(false)
+    }
+
+    fetchProfile()
+  }, [])
 
   const toggleSection = (section: string) => {
     setOpenSections(prev =>
@@ -35,6 +72,22 @@ export default function AboutPage() {
     </button>
   )
 
+  if (loading) {
+    return (
+      <main className="py-16 bg-[#F5F5F5] min-h-screen flex items-center justify-center">
+        <Loader2 className="h-12 w-12 animate-spin text-[#FFD700]" />
+      </main>
+    )
+  }
+
+  if (!profile) {
+    return (
+      <main className="py-16 bg-[#F5F5F5] min-h-screen flex items-center justify-center">
+        <p className="text-gray-500">Profile not found</p>
+      </main>
+    )
+  }
+
   return (
     <main className="py-16 bg-[#F5F5F5]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,15 +95,15 @@ export default function AboutPage() {
         <div className="text-center mb-12 bg-white rounded-2xl p-8 shadow-lg">
           <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-[#FFD700] shadow-lg mb-6 bg-white">
             <Image
-              src={politicianData.photo || "/placeholder.svg"}
-              alt={`Portrait of ${politicianData.name}`}
+              src={profile.photo || "/placeholder.svg"}
+              alt={`Portrait of ${profile.name}`}
               fill
               className="object-contain scale-110"
               style={{ objectPosition: 'center top' }}
             />
           </div>
-          <h1 className="text-4xl font-bold text-black mb-2">{politicianData.name}</h1>
-          <p className="text-xl text-gray-700 mb-4">{politicianData.title}</p>
+          <h1 className="text-4xl font-bold text-black mb-2">{profile.name}</h1>
+          <p className="text-xl text-gray-700 mb-4">{profile.title}</p>
           <div className="flex flex-wrap justify-center gap-2">
             <span className="bg-[#FFD700] text-black px-4 py-1 rounded-full text-sm font-semibold">
               CBS, First Class
@@ -70,21 +123,10 @@ export default function AboutPage() {
             <SectionHeader id="bio" title="Biography" icon={FileText} />
             {openSections.includes("bio") && (
               <div className="mt-2 bg-white rounded-lg p-6 border border-gray-200">
-                <div className="prose prose-lg max-w-none">
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    Hon. Amb. CPA Benjamin Kipkirui Langat, CBS is the current Member of Parliament for Ainamoi
-                    Constituency and immediate former Kenya High Commissioner to Namibia. He also served as the Member of
-                    Parliament for Ainamoi Constituency in Kericho from 2008 to 2017.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    He holds a Master of Business Administration Degree in Accounting and Bachelor of Commerce Degree
-                    (Accounting Option) both from the University of Nairobi. He is also a fully qualified Certified Public
-                    Accountant and member of the Institute of Certified Public Accountants of Kenya in good standing.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed">
-                    He was elected in the 2022 general election to Parliament under United Democratic Alliance (UDA).
-                  </p>
-                </div>
+                <div 
+                  className="prose prose-lg max-w-none text-gray-700 leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: profile.bio }}
+                />
               </div>
             )}
           </div>
