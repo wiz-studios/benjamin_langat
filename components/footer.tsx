@@ -20,7 +20,7 @@ export function Footer() {
               our community.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-[#FFD700] transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/AmbBenjaminLangat" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#FFD700] transition-colors" aria-label="Facebook">
                 <Facebook className="h-5 w-5" />
               </a>
               <a href="#" className="text-gray-300 hover:text-[#FFD700] transition-colors" aria-label="Twitter">

@@ -13,42 +13,19 @@ export async function middleware(req: NextRequest) {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
-        get(name: string) {
-          return req.cookies.get(name)?.value
+        getAll() {
+          return req.cookies.getAll()
         },
-        set(name: string, value: string, options: CookieOptions) {
-          req.cookies.set({
-            name,
-            value,
-            ...options,
-          })
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value, options }) => req.cookies.set(name, value))
           response = NextResponse.next({
             request: {
               headers: req.headers,
             },
           })
-          response.cookies.set({
-            name,
-            value,
-            ...options,
-          })
-        },
-        remove(name: string, options: CookieOptions) {
-          req.cookies.set({
-            name,
-            value: '',
-            ...options,
-          })
-          response = NextResponse.next({
-            request: {
-              headers: req.headers,
-            },
-          })
-          response.cookies.set({
-            name,
-            value: '',
-            ...options,
-          })
+          cookiesToSet.forEach(({ name, value, options }) =>
+            response.cookies.set(name, value, options)
+          )
         },
       },
     }
@@ -56,12 +33,12 @@ export async function middleware(req: NextRequest) {
 
   // Refresh session if expired
   const {
-    data: { session },
-  } = await supabase.auth.getSession()
+    data: { user },
+  } = await supabase.auth.getUser()
 
   // If accessing admin routes (except login) and not authenticated, redirect to login
   if (req.nextUrl.pathname.startsWith('/admin') && !req.nextUrl.pathname.startsWith('/admin/login')) {
-    if (!session) {
+    if (!user) {
       const redirectUrl = req.nextUrl.clone()
       redirectUrl.pathname = '/admin/login'
       redirectUrl.searchParams.set('redirectedFrom', req.nextUrl.pathname)
@@ -70,7 +47,7 @@ export async function middleware(req: NextRequest) {
   }
 
   // If accessing login page and already authenticated, redirect to admin dashboard
-  if (req.nextUrl.pathname === '/admin/login' && session) {
+  if (req.nextUrl.pathname === '/admin/login' && user) {
     const redirectUrl = req.nextUrl.clone()
     redirectUrl.pathname = '/admin'
     return NextResponse.redirect(redirectUrl)

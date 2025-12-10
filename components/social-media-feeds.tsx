@@ -134,9 +134,8 @@ export function SocialMediaFeeds() {
             >
               <div className="flex items-start gap-4">
                 <div
-                  className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${
-                    post.platform === "twitter" ? "bg-[#1DA1F2]" : "bg-[#4267B2]"
-                  }`}
+                  className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${post.platform === "twitter" ? "bg-[#1DA1F2]" : "bg-[#4267B2]"
+                    }`}
                 >
                   <PlatformIcon platform={post.platform} />
                   <span className="sr-only">{post.platform}</span>
@@ -172,7 +171,7 @@ export function SocialMediaFeeds() {
             </a>
           </Button>
           <Button asChild className="bg-[#4267B2] text-white hover:bg-[#365899]">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.facebook.com/AmbBenjaminLangat" target="_blank" rel="noopener noreferrer">
               <Facebook className="h-4 w-4 mr-2" /> Follow on Facebook
             </a>
           </Button>

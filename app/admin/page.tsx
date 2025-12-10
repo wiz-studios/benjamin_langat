@@ -6,11 +6,12 @@ import { createClient } from "@/lib/supabase/client"
 import { Button } from "@/components/ui/button"
 import { AdminBlog } from "@/components/admin-blog"
 import { AdminGallery } from "@/components/admin-gallery"
-import { Newspaper, ImageIcon, LogOut } from "lucide-react"
+import { AdminIssues } from "@/components/admin-issues"
+import { Newspaper, ImageIcon, LogOut, AlertCircle } from "lucide-react"
 
 export default function AdminPage() {
   const router = useRouter()
-  const [activeTab, setActiveTab] = useState<"blog" | "gallery">("blog")
+  const [activeTab, setActiveTab] = useState<"blog" | "gallery" | "issues">("blog")
 
   const handleLogout = async () => {
     const supabase = createClient()
@@ -35,7 +36,7 @@ export default function AdminPage() {
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-2 mb-8">
+        <div className="flex gap-2 mb-8 overflow-x-auto pb-2">
           <Button
             onClick={() => setActiveTab("blog")}
             className={
@@ -58,10 +59,23 @@ export default function AdminPage() {
             <ImageIcon className="h-4 w-4 mr-2" />
             Gallery
           </Button>
+          <Button
+            onClick={() => setActiveTab("issues")}
+            className={
+              activeTab === "issues"
+                ? "bg-[#FFD700] text-black hover:bg-[#E6C200]"
+                : "bg-white text-black border border-black hover:bg-gray-100"
+            }
+          >
+            <AlertCircle className="h-4 w-4 mr-2" />
+            Issues
+          </Button>
         </div>
 
         {/* Content */}
-        {activeTab === "blog" ? <AdminBlog /> : <AdminGallery />}
+        {activeTab === "blog" && <AdminBlog />}
+        {activeTab === "gallery" && <AdminGallery />}
+        {activeTab === "issues" && <AdminIssues />}
       </div>
     </main>
   )

@@ -1,3 +1,4 @@
+.mds
 .next/
 node_modules/
 *.md
@@ -47,3 +48,8 @@ next-env.d.ts
 *.swp
 *.swo
 *~
+
+# Generated documents
+*.pdf
+*.tex
+*.bundle
