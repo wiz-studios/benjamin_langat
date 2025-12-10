@@ -30,7 +30,10 @@ export function Hero({ name, title, shortBio, photo }: HeroProps) {
               {name}
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-4">{title}</p>
-            <p className="text-gray-700 mb-8 leading-relaxed">{shortBio}</p>
+            <div
+              className="text-gray-700 mb-8 leading-relaxed prose prose-p:mb-2"
+              dangerouslySetInnerHTML={{ __html: shortBio }}
+            />
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg" className="bg-[#FFD700] text-black hover:bg-[#E6C200] font-semibold">
                 <Link href="/about">Learn More</Link>
