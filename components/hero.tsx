@@ -31,7 +31,7 @@ export function Hero({ name, title, shortBio, photo }: HeroProps) {
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-4">{title}</p>
             <div
-              className="text-gray-700 mb-8 leading-relaxed prose prose-p:mb-2"
+              className="text-gray-700 mb-8 leading-relaxed prose prose-p:mb-2 text-justify"
               dangerouslySetInnerHTML={{ __html: shortBio }}
             />
             <div className="flex flex-wrap gap-4">

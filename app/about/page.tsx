@@ -30,13 +30,13 @@ export default function AboutPage() {
 
       if (!error && data) {
         setProfile({
-          name: data.name,
-          title: data.title,
-          bio: data.bio,
-          photo: data.photo,
-          email: data.email,
-          phone: data.phone,
-          birth_date: data.birth_date,
+          name: (data as any).name,
+          title: (data as any).title,
+          bio: (data as any).bio,
+          photo: (data as any).photo,
+          email: (data as any).email,
+          phone: (data as any).phone,
+          birth_date: (data as any).birth_date,
         })
       }
       setLoading(false)
@@ -123,8 +123,8 @@ export default function AboutPage() {
             <SectionHeader id="bio" title="Biography" icon={FileText} />
             {openSections.includes("bio") && (
               <div className="mt-2 bg-white rounded-lg p-6 border border-gray-200">
-                <div 
-                  className="prose prose-lg max-w-none text-gray-700 leading-relaxed"
+                <div
+                  className="prose prose-lg max-w-none text-gray-700 leading-relaxed text-justify"
                   dangerouslySetInnerHTML={{ __html: profile.bio }}
                 />
               </div>
