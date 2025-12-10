@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Twitter, Facebook, MessageCircle } from "lucide-react"
+import { Facebook, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 interface SocialPost {
@@ -83,7 +83,11 @@ export function SocialMediaFeeds() {
   const filteredPosts = filter === "all" ? socialPosts : socialPosts.filter((post) => post.platform === filter)
 
   const PlatformIcon = ({ platform }: { platform: "twitter" | "facebook" }) => {
-    return platform === "twitter" ? <Twitter className="h-5 w-5" /> : <Facebook className="h-5 w-5" />
+    return platform === "twitter" ? (
+      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      </svg>
+    ) : <Facebook className="h-5 w-5" />
   }
 
   return (
@@ -109,10 +113,12 @@ export function SocialMediaFeeds() {
             variant={filter === "twitter" ? "default" : "outline"}
             onClick={() => setFilter("twitter")}
             className={
-              filter === "twitter" ? "bg-[#1DA1F2] text-white hover:bg-[#1a8cd8]" : "border-black dark:border-white"
+              filter === "twitter" ? "bg-black text-white hover:bg-gray-800" : "border-black dark:border-white"
             }
           >
-            <Twitter className="h-4 w-4 mr-2" /> Twitter
+            <svg className="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg> X
           </Button>
           <Button
             variant={filter === "facebook" ? "default" : "outline"}
@@ -134,7 +140,7 @@ export function SocialMediaFeeds() {
             >
               <div className="flex items-start gap-4">
                 <div
-                  className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${post.platform === "twitter" ? "bg-[#1DA1F2]" : "bg-[#4267B2]"
+                  className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${post.platform === "twitter" ? "bg-black" : "bg-[#4267B2]"
                     }`}
                 >
                   <PlatformIcon platform={post.platform} />
@@ -165,9 +171,11 @@ export function SocialMediaFeeds() {
 
         {/* Follow Buttons */}
         <div className="flex justify-center gap-4 mt-10">
-          <Button asChild className="bg-[#1DA1F2] text-white hover:bg-[#1a8cd8]">
+          <Button asChild className="bg-black text-white hover:bg-gray-800">
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <Twitter className="h-4 w-4 mr-2" /> Follow on Twitter
+              <svg className="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg> Follow on X
             </a>
           </Button>
           <Button asChild className="bg-[#4267B2] text-white hover:bg-[#365899]">
